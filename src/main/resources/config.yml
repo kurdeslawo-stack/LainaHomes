@@ -1,0 +1,122 @@
+# MiniMessage: https://docs.advntr.dev/minimessage/format.html
+gui:
+  title: "<gradient:#58d68d:#2ecc71><bold>Twoje home'y</bold></gradient> <dark_gray>• %page%/%pages%"
+  size: 54
+
+  # Sloty są liczone od 0. Liczba slotów wyznacza liczbę home'ów na stronę.
+  home-slots:
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+
+  slots:
+    previous-page: 45
+    summary: 49
+    refresh: 51
+    next-page: 53
+
+  icons:
+    filler:
+      material: BLACK_STAINED_GLASS_PANE
+      custom-model-data: 0
+    home:
+      material: GRASS_BLOCK
+      custom-model-data: 0
+    favorite-home:
+      material: GOLD_BLOCK
+      custom-model-data: 0
+    previous-page:
+      material: ARROW
+      custom-model-data: 0
+    next-page:
+      material: ARROW
+      custom-model-data: 0
+    refresh:
+      material: SUNFLOWER
+      custom-model-data: 0
+    summary:
+      material: BOOK
+      custom-model-data: 0
+    empty-state:
+      material: FLOWER_POT
+      custom-model-data: 0
+
+  text:
+    home-name: "<green><bold>%home%</bold>"
+    home-lore:
+      - "<dark_gray>━━━━━━━━━━━━━━━━━━━━"
+      - "<gray>Świat: <white>%world%"
+      - "<gray>Koordynaty: <white>%coordinates%"
+      - "<gray>Ulubiony: %favorite%"
+      - "<gray>Opis: <white>%description%"
+      - ""
+      - "<yellow>▶ LPM: teleport"
+      - "<gold>☆ PPM: dodaj/usuń z ulubionych"
+    previous-page: "<green>Poprzednia strona"
+    next-page: "<green>Następna strona"
+    refresh: "<yellow>Odśwież listę"
+    summary: "<gold><bold>Podsumowanie</bold>"
+    summary-lore:
+      - "<gray>Wszystkie home'y: <white>%total%"
+      - "<gray>Ulubione: <white>%favorites%"
+      - "<dark_gray>LPM = teleport"
+      - "<dark_gray>PPM = ulubione"
+    empty-state: "<yellow><bold>Brak home'ów</bold>"
+    empty-lore:
+      - "<gray>Nie masz jeszcze żadnego home'a."
+      - "<dark_gray>Utwórz go przez /sethome <nazwa>."
+
+  formats:
+    coordinates: "%x%, %y%, %z%"
+    number: "0.0"
+    favorite-yes: "<gold>★ tak"
+    favorite-no: "<dark_gray>☆ nie"
+    no-description: "<dark_gray>brak"
+    hide-empty-description-line: false
+
+  spam-click-delay-ms: 250
+
+descriptions:
+  max-length: 120
+
+messages:
+  prefix: "<dark_gray>[<green>LainaHomes</green>]</dark_gray> "
+  no-permission: "<red>Nie masz uprawnień."
+  players-only: "<red>Ta komenda jest dostępna tylko dla gracza."
+  backend-unavailable: "<red>EssentialsX jest niedostępny."
+  load-failed: "<red>Nie udało się wczytać home'ów."
+  home-missing: "<red>Ten home już nie istnieje."
+  unsafe-home-name: "<red>Nazwa home'a nie może zostać bezpiecznie przekazana do /home."
+  favorite-added: "<green>Dodano <white>%home%</white> do ulubionych."
+  favorite-removed: "<yellow>Usunięto <white>%home%</white> z ulubionych."
+  description-saved: "<green>Zapisano opis home'a <white>%home%</white>."
+  description-cleared: "<yellow>Usunięto opis home'a <white>%home%</white>."
+  description-too-long: "<red>Opis może mieć maksymalnie %max% znaków."
+  description-usage: "<yellow>Użycie: /homegui description <home> <tekst lub ->"
+  reloaded: "<green>Konfiguracja LainaHomes została przeładowana."
+  storage-failed: "<red>Nie udało się zapisać danych GUI."

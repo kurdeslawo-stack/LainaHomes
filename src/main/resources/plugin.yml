@@ -1,0 +1,28 @@
+name: LainaHomes
+version: 0.1.0
+main: pl.laina.homes.LainaHomesPlugin
+api-version: '1.21'
+authors: [slawek]
+description: GUI frontend for homes managed by EssentialsX.
+softdepend: [Essentials]
+commands:
+  homes:
+    description: Otwiera GUI istniejących home'ów EssentialsX.
+    usage: /homes
+    permission: lainahomes.use
+  homegui:
+    description: Zarządza GUI home'ów i opisami.
+    usage: /homegui [description <home> <tekst|->|reload|debug]
+permissions:
+  lainahomes.use:
+    description: Pozwala otwierać GUI home'ów.
+    default: true
+  lainahomes.description:
+    description: Pozwala ustawiać własne opisy home'ów.
+    default: true
+  lainahomes.reload:
+    description: Pozwala przeładować konfigurację LainaHomes.
+    default: op
+  lainahomes.debug:
+    description: Pokazuje informacje diagnostyczne integracji.
+    default: op
