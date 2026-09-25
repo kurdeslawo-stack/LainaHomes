@@ -13,6 +13,7 @@ import pl.laina.homes.gui.HomesMenuController;
 import pl.laina.homes.gui.HomesMenuRenderer;
 import pl.laina.homes.message.Messages;
 import pl.laina.homes.service.EssentialsHomeGateway;
+import pl.laina.homes.service.EssentialsBackend;
 import pl.laina.homes.storage.GuiDataStore;
 
 public final class LainaHomesPlugin extends JavaPlugin {
@@ -24,7 +25,8 @@ public final class LainaHomesPlugin extends JavaPlugin {
         this.reloadSettings();
 
         Plugin dependency = this.getServer().getPluginManager().getPlugin("Essentials");
-        if (!(dependency instanceof IEssentials essentials) || !dependency.isEnabled()) {
+        IEssentials essentials = EssentialsBackend.resolve(dependency).orElse(null);
+        if (essentials == null) {
             this.getLogger().severe("EssentialsX nie jest zainstalowany lub aktywny. Wyłączam LainaHomes bez dotykania danych home'ów.");
             this.getServer().getPluginManager().disablePlugin(this);
             return;
