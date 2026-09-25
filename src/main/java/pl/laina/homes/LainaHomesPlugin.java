@@ -9,6 +9,7 @@ import pl.laina.homes.command.HomeGuiCommand;
 import pl.laina.homes.config.GuiSettings;
 import pl.laina.homes.core.HomeCatalogue;
 import pl.laina.homes.gui.GuiListener;
+import pl.laina.homes.gui.DescriptionEditor;
 import pl.laina.homes.gui.HomesMenuController;
 import pl.laina.homes.gui.HomesMenuRenderer;
 import pl.laina.homes.message.Messages;
@@ -41,11 +42,14 @@ public final class LainaHomesPlugin extends JavaPlugin {
         GuiDataStore dataStore = new GuiDataStore(this.getDataFolder().toPath().resolve("gui-data.yml"), this.getLogger()::warning);
         HomesMenuRenderer renderer = new HomesMenuRenderer(messages, new HomeCatalogue());
         HomesMenuController menus = new HomesMenuController(this, gateway, dataStore, renderer, messages);
+        DescriptionEditor descriptions = new DescriptionEditor(this, menus, messages);
         HomeGuiCommand executor = new HomeGuiCommand(this, menus, messages);
         this.configureCommand("homes", executor);
         this.configureCommand("homegui", executor);
         this.getServer().getPluginManager().registerEvents(new HomeCommandInterceptor(menus, messages), this);
-        this.getServer().getPluginManager().registerEvents(new GuiListener(menus, () -> this.settings.spamDelayMillis()), this);
+        this.getServer().getPluginManager().registerEvents(descriptions, this);
+        this.getServer().getPluginManager().registerEvents(
+                new GuiListener(menus, descriptions, () -> this.settings.spamDelayMillis()), this);
         this.getLogger().info("LainaHomes włączony. Backend: " + gateway.backendVersion() + ". /home bez argumentów otwiera GUI.");
     }
 

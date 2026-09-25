@@ -13,11 +13,14 @@ import org.bukkit.event.inventory.InventoryDragEvent;
 
 public final class GuiListener implements Listener {
     private final HomesMenuController menus;
+    private final DescriptionEditor descriptions;
     private final java.util.function.LongSupplier spamDelayMillis;
     private final Map<UUID, Long> nextClickAt = new HashMap<>();
 
-    public GuiListener(HomesMenuController menus, java.util.function.LongSupplier spamDelayMillis) {
+    public GuiListener(HomesMenuController menus, DescriptionEditor descriptions,
+                       java.util.function.LongSupplier spamDelayMillis) {
         this.menus = menus;
+        this.descriptions = descriptions;
         this.spamDelayMillis = spamDelayMillis;
     }
 
@@ -35,7 +38,7 @@ public final class GuiListener implements Listener {
             return;
         }
         ClickType click = event.getClick();
-        if (click != ClickType.LEFT && click != ClickType.RIGHT) {
+        if (click != ClickType.LEFT && click != ClickType.RIGHT && click != ClickType.SHIFT_RIGHT) {
             return;
         }
         long now = System.currentTimeMillis();
@@ -48,6 +51,8 @@ public final class GuiListener implements Listener {
         if (home.isPresent()) {
             if (click == ClickType.LEFT) {
                 this.menus.teleport(player, home.get().home().name());
+            } else if (click == ClickType.SHIFT_RIGHT) {
+                this.descriptions.begin(player, home.get().home().name(), holder.page());
             } else {
                 this.menus.toggleFavorite(player, home.get().home().name(), holder.page());
             }

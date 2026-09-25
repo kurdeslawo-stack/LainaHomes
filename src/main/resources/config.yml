@@ -77,6 +77,7 @@ gui:
       - ""
       - "<yellow>▶ LPM: teleport"
       - "<gold>☆ PPM: dodaj/usuń z ulubionych"
+    description-edit-hint: "<aqua>✎ Shift + PPM: ustaw/zmień opis"
     previous-page: "<green>Poprzednia strona"
     next-page: "<green>Następna strona"
     refresh: "<yellow>Odśwież listę"
@@ -103,6 +104,7 @@ gui:
 
 descriptions:
   max-length: 120
+  chat-input-timeout-seconds: 60
 
 messages:
   prefix: "<dark_gray>[<green>LainaHomes</green>]</dark_gray> "
@@ -118,5 +120,8 @@ messages:
   description-cleared: "<yellow>Usunięto opis home'a <white>%home%</white>."
   description-too-long: "<red>Opis może mieć maksymalnie %max% znaków."
   description-usage: "<yellow>Użycie: /homegui description <home> <tekst lub ->"
+  description-edit-prompt: "<aqua>Wpisz na czacie opis dla <white>%home%</white> (maks. %max% znaków). <gray>Wpisz <white>-</white>, aby usunąć, albo <white>anuluj</white>. Masz %seconds% s."
+  description-edit-cancelled: "<yellow>Anulowano zmianę opisu."
+  description-edit-expired: "<red>Minął czas na wpisanie opisu."
   reloaded: "<green>Konfiguracja LainaHomes została przeładowana."
   storage-failed: "<red>Nie udało się zapisać danych GUI."

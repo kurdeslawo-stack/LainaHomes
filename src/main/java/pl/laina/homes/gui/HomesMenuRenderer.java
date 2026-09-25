@@ -100,6 +100,9 @@ public final class HomesMenuRenderer {
                     .replace("%favorite%", entry.favorite() ? settings.favoriteYes() : settings.favoriteNo());
             lore.add(rendered);
         }
+        if (!settings.descriptionEditHint().isBlank()) {
+            lore.add(settings.descriptionEditHint());
+        }
         return this.item(settings.icon(entry.favorite() ? GuiIcon.FAVORITE_HOME : GuiIcon.HOME), name, lore);
     }
 
